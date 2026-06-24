@@ -1,0 +1,348 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  color:rgb(4, 3, 3);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Navigation / Header */
+.header {
+  background: #1beb87;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  padding: 5px 10px;
+  transition: background 0.3s;
+}
+.nav-links li a:hover {
+  background: #3e26f5;
+  border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+  background:scroll;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.hero-content {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  background: #007BFF;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #0056b3;
+}
+
+/* About Section */
+.about {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.about h2 {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.about p {
+  flex: 1;
+}
+.about-img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover; /* ensures the image covers the box without distortion */
+}
+.Certificates {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+
+}
+.Certificates button{
+ background: #390cec;
+    display: inline-block;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.Certificates button:hover {
+  background: #28e470;
+}
+.Certificates h2 {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.Certificates p {
+  flex: 1;
+}
+.Certificates-img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover; /* ensures the image covers the box without distortion */
+}
+
+
+/* Skills Section */
+.skills {
+  width: 90%;
+  max-width: 1100px;
+  margin: 80px auto;
+}
+.skills h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.skill-category {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+.skill-category h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1beb87;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #1beb87;
+  padding-bottom: 6px;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tags span {
+  background: #f0f4ff;
+  color: #1a1a2e;
+  border: 1px solid #c5d0f5;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 0;
+}
+.projects h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.projects-grid {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.project-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+}
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.project-card h3 {
+  font-size: 1.1rem;
+  margin: 14px 16px 4px;
+}
+.project-lang {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin: 0 16px 10px;
+  font-weight: 600;
+}
+.project-card p {
+  font-size: 0.88rem;
+  color: #333;
+  padding: 0 16px;
+  flex: 1;
+}
+.project-btn {
+  display: inline-block;
+  margin: 14px 16px 18px;
+  background: #007BFF;
+  color: #fff !important;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.3s;
+  align-self: flex-start;
+}
+.project-btn:hover {
+  background: #0056b3;
+}
+
+/* Contact Section */
+.contact {
+  width: 90%;
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #140a9c;
+  color: #dddbf3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.contact-form button:hover {
+  background: #0056b3;
+}
+
+.form-status {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: none;
+}
+.form-status.success {
+  display: block;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.form-status.error {
+  display: block;
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+.footer {
+  background: #57e2de;
+  color: #bdacac;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-img {
+    width: 80%;
+    margin: auto;
+  }
+}
+html, body {
+  height: 100%;           /* ensure both cover full viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("https://png.pngtree.com/background/20250703/original/pngtree-minimalist-geometric-background-with-modern-shapes-pastel-colors-for-web-and-picture-image_16328323.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;  /* optional: makes background stay fixed when scrolling */
+}
+
