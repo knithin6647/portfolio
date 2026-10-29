@@ -244,9 +244,11 @@
     <h2>Contact Me</h2>
     <p>Feel free to reach out for collaborations or just a friendly hello 👋</p>
     <form class="contact-form" id="contact-form">
-      <input type="hidden" name="_subject" value="New Message from Portfolio" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" />
+      <!-- Web3Forms access key (get it free at web3forms.com using knithinkumarknithin@gmail.com) -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="New Message from Portfolio" />
+      <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
@@ -264,6 +266,16 @@
     const btn = document.getElementById('submit-btn');
     const status = document.getElementById('form-status');
 
+    const MY_EMAIL = 'knithinkumarknithin@gmail.com';
+
+    // If the form service is unavailable, open the visitor's mail app with the message pre-filled
+    function openMailFallback(data) {
+      const body = `${data.get('message')}\n\nFrom: ${data.get('name')} <${data.get('email')}>`;
+      window.location.href = `mailto:${MY_EMAIL}?subject=${encodeURIComponent('Message from Portfolio')}&body=${encodeURIComponent(body)}`;
+      status.textContent = '📧 Opening your email app to send the message. You can also email me at ' + MY_EMAIL;
+      status.className = 'form-status success';
+    }
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       btn.disabled = true;
@@ -273,24 +285,21 @@
 
       const data = new FormData(form);
       try {
-        // FormSubmit forwards the message to my inbox; works on static hosts like GitHub Pages
-        const res = await fetch('https://formsubmit.co/ajax/knithinkumarknithin@gmail.com', {
+        if (data.get('access_key') === 'YOUR_ACCESS_KEY_HERE') throw new Error('Form access key not set');
+        // Web3Forms forwards the message to my inbox; works on static hosts like GitHub Pages
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: data
         });
         const json = await res.json();
-        if (json.success === 'true' || json.success === true) {
-          status.textContent = '✅ Message sent! I will get back to you soon.';
-          status.className = 'form-status success';
-          form.reset();
-        } else {
-          status.textContent = '❌ ' + (json.message || 'Something went wrong. Please try again.');
-          status.className = 'form-status error';
-        }
-      } catch {
-        status.textContent = '❌ Network error. Please check your connection.';
-        status.className = 'form-status error';
+        if (!json.success) throw new Error(json.message);
+        status.textContent = '✅ Message sent! I will get back to you soon.';
+        status.className = 'form-status success';
+        form.reset();
+      } catch (err) {
+        console.error('Contact form error:', err);
+        openMailFallback(data);
       }
       btn.disabled = false;
       btn.textContent = 'Send Message';
