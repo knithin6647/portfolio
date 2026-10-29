@@ -82,6 +82,92 @@ img {
 .btn:hover {
   background: #0056b3;
 }
+.btn-outline {
+  background: #fff;
+  color: #007BFF;
+  border: 2px solid #007BFF;
+  margin-left: 10px;
+}
+.btn-outline:hover {
+  background: #007BFF;
+  color: #fff;
+}
+.inline-link {
+  color: #007BFF;
+  font-weight: 600;
+}
+.inline-link:hover {
+  text-decoration: underline;
+}
+
+/* Experience Section */
+.experience {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto;
+}
+.experience h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.timeline {
+  border-left: 3px solid #1beb87;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.exp-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+.exp-card::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1beb87;
+  border: 3px solid #fff;
+}
+.exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.exp-head h3 {
+  font-size: 1.15rem;
+}
+.exp-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #f0f4ff;
+  border: 1px solid #c5d0f5;
+  border-radius: 20px;
+  padding: 2px 12px;
+}
+.exp-date.current {
+  background: #e8f5e9;
+  border-color: #1beb87;
+  color: #2e7d32;
+}
+.exp-org {
+  font-weight: 600;
+  color: #3e26f5;
+  margin-bottom: 8px;
+}
+.exp-card ul {
+  padding-left: 20px;
+  font-size: 0.92rem;
+}
 
 /* About Section */
 .about {
@@ -259,6 +345,35 @@ img {
 .project-btn:hover {
   background: #0056b3;
 }
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+.project-links .project-btn {
+  margin-right: 0;
+}
+.btn-secondary {
+  background: #1a1a2e;
+}
+.btn-secondary:hover {
+  background: #3e26f5;
+}
+.project-card.featured {
+  border: 2px solid #1beb87;
+}
+.live-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  background: #1beb87;
+  color: #04220f;
+  border-radius: 20px;
+  padding: 1px 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.honeypot {
+  display: none;
+}
 
 /* Contact Section */
 .contact {
@@ -330,6 +445,13 @@ img {
   .about-img {
     width: 80%;
     margin: auto;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .btn-outline {
+    margin: 10px 0 0;
   }
 }
 html, body {
